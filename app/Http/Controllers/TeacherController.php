@@ -4,40 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
-{
-     public function index()
+class teacherController extends Controller
+ {
+    public function index()
     {
-        return "Ini adalah halaman daftar guru"();
+        return "This is the teacher list page"();
     }
  
     public function show(string $id)
     {
-        return "Menampilkan detail guru dengan ID: {$id}";
+        return "Display the teacher with ID: {$id}";
     }
 
     public function create()
     {
-        return "Ini adalah halaman tambah guru"();
+        return "This is the add teacher page"();
     }
 
     public function edit(string $id)
     {
-        return "Ini adalah halaman edit guru dengan ID: {$id}";
+        return "This is the edit teacher page for teacher ID: {$id}";
     }
 
     public function store()
     {
-        return "Menambah data guru baru";
+        return "Adding a new teacher";
     }
 
     public function update(string $id)
     {
-        return "Menambah data guru dengan ID: {$id}";
+        return "Updating the teacher with ID: {$id}";
     }
 
     public function destroy(string $id)
     {
-        return "Menghapus data guru dengan ID: {$id}";
+        return "Deleting the teacher with ID: {$id}";
     }
-}
+ }
