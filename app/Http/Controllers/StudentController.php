@@ -14,17 +14,23 @@ class StudentController extends Controller
                 'id' => 1,
                 'nis' => '1001',
                 'name' => 'Andi',
-                'class' => 'XII TKJ 2',
+                'class' => 'XII TKJ 1',
                 'major' => 'TKJ'
             ],
-               [
+            [
                 'id' => 2,
                 'nis' => '1002',
                 'name' => 'Budi',
                 'class' => 'XII TKJ 2',
                 'major' => 'TKJ'
             ],
-        
+            [
+                'id' => 3,
+                'nis' => '1003',
+                'name' => 'Nina',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ'
+            ],
         ];
         return view('students.index', [
             'title' => $title,
@@ -32,18 +38,18 @@ class StudentController extends Controller
         ]);
     }
  
-    public function show(string $id)
-    {
-        $title = 'Sistem Sekolah - Detail Siswa';
-        return view('students.show', [
-            'title' => $title
-        ]);
-    }
-
     public function create()
     {
          $title = 'Sistem Sekolah - Tambah Siswa';
         return view('students.create', [
+            'title' => $title
+        ]);
+    }
+
+        public function show(string $id)
+    {
+        $title = 'Sistem Sekolah - Detail Siswa';
+        return view('students.show', [
             'title' => $title
         ]);
     }

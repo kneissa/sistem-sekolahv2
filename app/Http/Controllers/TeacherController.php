@@ -8,7 +8,7 @@ class teacherController extends Controller
  {
     public function index()
     {
-        return "This is the teacher list page"();
+        return "This is the teacher list page";
     }
  
     public function show(string $id)

@@ -11,7 +11,7 @@ class MajorController extends Controller
      */
     public function index()
     {
-        return "This is the major list page"();
+        return "This is the major list page";
     }
  
     public function show(string $id)
