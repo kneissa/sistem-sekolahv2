@@ -11,22 +11,56 @@ class MajorController extends Controller
      */
     public function index()
     {
-        return "This is the major list page";
+          $title = 'Sistem-Sekolah - Daftar Jurusan';
+          $majors = [
+        [
+            'id' => 1,
+            'code' => 'AKL',
+            'name' => 'Akuntansi dan Keuangan Lembaga',
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+        ],
+        [
+            'id' => 2,
+            'code' => 'TKJ',
+            'name' => 'Teknik Komputer dan Jaringan',
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+        ],
+        [
+            'id' => 3,
+            'code' => 'BD',
+            'name' => 'Bisnis Digital',
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+        ],
+        ];
+            return view('majors.index', [
+                'title' => $title,
+                'majors' => $majors
+        ]);
+
     }
  
-    public function show(string $id)
-    {
-        return "Display the major with ID: {$id}";
-    }
-
     public function create()
     {
-        return "This is the add major page"();
+        $title = 'Sistem Sekolah - Tambah Jurusan';
+        return view('majors.create', [
+        'title' => $title
+        ]);
+    }
+
+    public function show(string $id)
+    {
+        $title = 'Sistem Sekolah - Detail Jurusan';
+        return view('majors.show', [
+        'title' => $title
+        ]);
     }
 
     public function edit(string $id)
     {
-        return "This is the edit major page for major ID: {$id}";
+        $title = 'Sistem Sekolah - Edit Jurusan';
+        return view('majors.edit', [
+        'title' => $title
+        ]);
     }
 
     public function store()
