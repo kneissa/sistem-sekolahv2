@@ -28,7 +28,7 @@
                         <th class="px-5 py-3.5 font-semibold">Mata Pelajaran</th>
                         <th class="px-5 py-3.5 font-semibold">No. Telepon</th>
                         <th class="px-5 py-3.5 font-semibold">Status</th>
-                        <th class="px-5 py-3.5 text-center font-semibold">Tindakan</th>
+                        <th class="px-5 py-3.5 text-right font-semibold">Tindakan</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,7 +53,16 @@
                             {{ $teacher['phone'] }}
                         </td>
                            <td class="px-5 py-4">
-                            {{ $teacher['status'] }}
+                            @if ($teacher['status'] === 'Aktif')
+                                <span class="inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                                    {{ $teacher['status'] }}
+                                </span>
+                            @else
+                                <span class="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-700">
+                                    {{ $teacher['status'] }}
+                                </span>
+                            @endif
+                        </td>
                         </td>
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
