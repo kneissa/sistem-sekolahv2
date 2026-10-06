@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Http\Requests\Student\StoreRequest;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -49,16 +50,11 @@ class StudentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         // Validasi
-        $validatedRequest = $request->validate([
-            'nis' => ['required', 'string', 'size:4', 'unique:students,nis'],
-            'name' => ['required', 'string'],
-            'gender' => ['required', 'string', 'in:Laki-laki,Perempuan'],
-            'major' => ['required', 'string', 'in:AKL,TKJ,BiD'],
-            'class' => ['required', 'string']
-        ]);
+        $validatedRequest = $request->validated();
+      
 
         // Tambahkan Data ke Database
         Student::create($validatedRequest);
