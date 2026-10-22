@@ -10,13 +10,22 @@ use App\Http\Controllers\SchoolClass\ShowController;
 use App\Http\Controllers\SchoolClass\EditController;
 use App\Http\Controllers\SchoolClass\UpdateController;
 use App\Http\Controllers\SchoolClass\DestroyController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Authentication
+Route::get('/login', [AuthController::class, 'loginView'])->name('login-view');
+Route::post('/login', [AuthController::class, 'loginPost'])->name('login-post');
+Route::get('/register', [AuthController::class, 'registerView'])->name('register-view');
+Route::post('/register', [AuthController::class, 'registerPost'])->name('register-post');
+
+// Student Managemnet
 Route::name('students.')->prefix('students')->group(function() {
     Route::get('/', [StudentController::class, 'index'])->name('index');
     Route::get('/create', [StudentController::class, 'create'])->name('create');
@@ -28,7 +37,7 @@ Route::name('students.')->prefix('students')->group(function() {
 });
 
 
-
+//Teacher Management
 Route::name('teachers.')->prefix('teachers')->group(function() {
 
     Route::get('/', [TeacherController::class, 'index'])->name('index');
