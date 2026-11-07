@@ -26,7 +26,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Student Managemnet
-Route::name('students.')->prefix('students')->group(function() {
+Route::name('students.')->middleware('role:student, teacher')->prefix('students')->group(function() {
     Route::get('/', [StudentController::class, 'index'])->name('index');
     Route::get('/create', [StudentController::class, 'create'])->name('create');
     Route::post('/', [StudentController::class, 'store'])->name('store');
