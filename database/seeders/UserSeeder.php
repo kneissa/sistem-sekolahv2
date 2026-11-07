@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
         User::updateOrCreate(
             ['email' => $userStudentEmail],
             [
-                'name' => 'Kaneisha Eliorra',
+                'name' => 'Budi',
                 'password' => bcrypt('password'),
                 'role' => 'student'
             ]
